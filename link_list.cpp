@@ -113,11 +113,12 @@ int main(){
     push_back(&head, 2);
     push_back(&head, 4);
     push_back(&head, 6);
-    /*push_back(&head, 15);*/
-    //push_back(&head, 4);
-    //push_back(&head, 7);
-
-
+    push_back(&head, 15);
+    push_back(&head, 4);
+    push_back(&head, 7);
+    
+    cout<<"list1:";
+    print(head);
 
     Node *head2 = new Node;
     head2->value = 1;
@@ -125,24 +126,22 @@ int main(){
     push_back(&head2, 3);
     push_back(&head2, 5);
     push_back(&head2, 6);
-
-    unordered_map<Node*, int> map;
-    map[head] = 1;
-    if (map.find(head->Next) == map.end())
-       cout<<"me lene gianni"<<endl;
-    else
-       cout<<"Cant found that Node"<<endl;
+    
+    cout<<"list2:";
+    print(head2);
+    
     
 
-    //Node *head3 = mergeTwoLists(head, head2);
-    //print(head3);
+    Node *head3 = mergeTwoLists(head, head2);
+    cout<<"merged linked list:";
+    print(head3);
 
-    /*Node *current = head;
-    while (current!=NULL){
-        cout<<current->value<<" ";
-        current = current->Next;
-    }*/
-    cout<<endl;
+    //insertion sort
+    insertion_sort(&head3);
+    cout<<"After sorting:";
+    print(head3);
+
+
     
     return 0;
 }
@@ -467,4 +466,5 @@ void print(Node *head){
         cout<<current->value<<" ";
         current = current->Next;
     }
+    cout<<endl;
 }
